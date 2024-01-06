@@ -1,5 +1,6 @@
 'use client';
 
+import Button from "@/app/components/Button";
 import Input from "@/app/components/Input";
 import { useCallback, useState } from "react"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -78,13 +79,68 @@ sm:px-10
 className="space-y-6"
 onSubmit={handleSubmit(onSubmit)}
 >
-
-<Input/>
-
-
-
-
+{variant === 'Register' && (
+<Input 
+id="name" 
+label="name" 
+register={register}
+errors={errors}
+/>
+)}
+<Input 
+id="emal" 
+label="Email Address"
+type="email" 
+register={register}
+errors={errors}
+/><Input 
+id="password" 
+label="Password" 
+type="password"
+register={register}
+errors={errors}
+/>
+<Button 
+disabled={isLoading}
+fullWidth
+type="submit"
+>
+    {variant === 'Login'? 'Sign in':'Register'}
+</Button>
 </form>
+<div className="mt-6">
+<div className="relative">
+<div
+className="
+absolute
+inset-0
+flex
+item-center"
+>
+<div className="
+w-full 
+border-t
+border-gray-300"
+>
+<div className="
+relative
+flex
+justify-center
+text-sm"
+>
+<span className="
+bg-white
+px-2
+text-gray-500"
+>
+Or continue with
+</span>
+</div>
+</div>
+</div>
+
+</div>
+</div>
 </div>
 </div>
 </>
