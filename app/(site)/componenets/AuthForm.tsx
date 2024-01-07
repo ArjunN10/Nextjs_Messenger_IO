@@ -75,6 +75,7 @@ const AuthForm = () => {
                         label="Name"
                         register={register}
                         errors={errors}
+                        disabled={isLoading}
                     />
                     )}
                     <Input
@@ -83,6 +84,8 @@ const AuthForm = () => {
                     type="email"
                     register={register}
                     errors={errors}
+                    disabled={isLoading}
+
                     />
                     <Input
                     id="password"
@@ -90,6 +93,8 @@ const AuthForm = () => {
                     type="password"
                     register={register}
                     errors={errors}
+                    disabled={isLoading}
+
                     />
             <Button disabled={isLoading} fullWidth type="submit">
               {variant === "Login" ? "Sign in" : "Register"}
@@ -131,11 +136,11 @@ const AuthForm = () => {
             <div className="mt-6 flex gap-2">
                 <AuthSocialButton 
                 icon={BsGithub}
-                onclick={()=>socialAction('github')}
+                onClick={()=>socialAction('github')}
                 />
                 <AuthSocialButton 
                 icon={BsGoogle}
-                onclick={()=>socialAction('google')}/>
+                onClick={()=>socialAction('google')}/>
             </div>
           </div>
         <div className="
@@ -154,7 +159,7 @@ const AuthForm = () => {
             onClick={togglevariant}
             className="Underline cursor-pointer"
             >
-            {variant === 'Login'?'Create an account':'Login'}
+            {variant === 'Login'?<a  className="font-bold leading-6 text-black-600 hover:text-black-500">{'Create an account'}</a>:<a  className="font-bold leading-6 text-black-600 hover:text-black-500">{ 'Login'}</a>}
             </div>
         </div>
 
