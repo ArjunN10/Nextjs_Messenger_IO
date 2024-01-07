@@ -72,7 +72,7 @@ const AuthForm = () => {
             {variant === "Register" && (
                     <Input
                         id="name"
-                        label="name"
+                        label="Name"
                         register={register}
                         errors={errors}
                     />
@@ -138,6 +138,26 @@ const AuthForm = () => {
                 onclick={()=>socialAction('google')}/>
             </div>
           </div>
+        <div className="
+        flex
+        gap-2
+        justify-center
+        text-sm
+        mt-6
+        px-2
+        text-gray-500
+        ">
+            <div>
+                {variant === 'Login'?'New to messenger?':'Already have an account?'}
+            </div>
+            <div
+            onClick={togglevariant}
+            className="Underline cursor-pointer"
+            >
+            {variant === 'Login'?'Create an account':'Login'}
+            </div>
+        </div>
+
         </div>
       </div>
   
