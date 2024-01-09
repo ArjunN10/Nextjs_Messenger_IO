@@ -10,48 +10,45 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
-  id String  @id @default(auto()) @map("_id") @db.ObjectId
-  name  String?
-  email String? @unique
-  emailVerified DateTime?
-  image String?
-  hashedPassword String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model User {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  name            String?
+  email           String?   @unique
+  emailVerified   DateTime?
+  image           String?
+  hashedPassword  String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 
   conversationIds String[] @db.ObjectId
-  converstions Conversation[] @relation(fields: [conversationIds],references: [id])
-
-
+  conversations Conversation[] @relation(fields: [conversationIds], references: [id])
+  
   seenMessageIds String[] @db.ObjectId
-  seenMessages Message[] @relation("Seen",fields: [seenMessageIds],references: [id])
+  seenMessages Message[] @relation("Seen", fields: [seenMessageIds], references: [id])
 
   accounts Account[]
   messages Message[]
 }
 
 
-model Account{
-  id String  @id @default(auto()) @map("_id") @db.ObjectId
-  UserId String @db.ObjectId
-  type String
-  provider String
-  providerAccountId String
-  refresh_token String? @db.String
-  access_token String? @db.String
-  expires_at Int?
-  token_type String?
-  scope String?
-  id_token String? @db.String
-  session_state String?
+model Account {
+  id                 String @id @default(auto()) @map("_id") @db.ObjectId
+  userId             String  @db.ObjectId
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.String
+  access_token       String?  @db.String
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.String
+  session_state      String?
 
-  user User @relation(fields: [UserId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([provider,providerAccountId])  //The provider & providerAccount model should be unique
-
+  @@unique([provider, providerAccountId])
 }
-
 
 
 model Conversation{

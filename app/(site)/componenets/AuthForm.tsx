@@ -77,7 +77,6 @@ const AuthForm = () => {
         if (callback?.error) {
             toast.error('Invalid user')
         }
-
         if(callback?.ok && !callback?.error){
             toast.success('Logged in!')
         }
