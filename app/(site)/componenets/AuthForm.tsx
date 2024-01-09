@@ -1,4 +1,6 @@
 "use client";
+
+import axios from "axios";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import {BsGithub, BsGoogle} from 'react-icons/bs' 
@@ -6,6 +8,7 @@ import {BsGithub, BsGoogle} from 'react-icons/bs'
 import Button from "@/app/components/Button";
 import Input from "@/app/components/Input";
 import AuthSocialButton from "./AuthSocialButton";
+import toast from "react-hot-toast";
 
 
 type variant = "Login" | "Register";
@@ -38,8 +41,10 @@ const AuthForm = () => {
     setisLoading(true);
 
     if (variant === "Register") {
-      //Axios register
-    }
+        axios.post('/api/register', data)
+        .catch(()=>toast.error('Something went wrong!'))
+        }
+
     if (variant === "Login") {
       //NextAuth signin
     }
@@ -71,15 +76,15 @@ const AuthForm = () => {
         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             {variant === "Register" && (
                     <Input
-                        id="name"
-                        label="Name"
-                        register={register}
-                        errors={errors}
-                        disabled={isLoading}
+                    id="name"
+                    label="Name"
+                    register={register}
+                    errors={errors}
+                    disabled={isLoading}
                     />
                     )}
                     <Input
-                    id="emal"
+                    id="email"
                     label="Email Address"
                     type="email"
                     register={register}
@@ -96,9 +101,9 @@ const AuthForm = () => {
                     disabled={isLoading}
 
                     />
-            <Button disabled={isLoading} fullWidth type="submit">
-              {variant === "Login" ? "Sign in" : "Register"}
-            </Button>
+    <Button disabled={isLoading} fullWidth type="submit">
+        {variant === "Login" ? "Sign in" : "Register"}
+    </Button>
     </form>
         <div className="mt-6">
             <div className="relative">
