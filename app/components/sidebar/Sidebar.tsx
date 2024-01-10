@@ -1,4 +1,5 @@
 import DesktopSidebar from "./DesktopSidebar";
+import MobileFooter from "./MobileFooter";
 
 export default async function UsersLayout({
     children
@@ -9,6 +10,7 @@ export default async function UsersLayout({
 
         <div className="h-full">
             <DesktopSidebar/>
+            <MobileFooter/>
             <main className="lg:pl-20 h-full">
             {children}
             </main>

@@ -14,10 +14,22 @@ const useRoutes=()=>{
 
     const routes=useMemo(()=>[
         {
-            label:'chat',
+            label:'Chat',
             href:'/conversation',
             icon:BsFillChatDotsFill,
             active:pathname === '/conversation' || !!conversationId
+        },
+        {
+            label:'Users',
+            href:'/users',
+            icon:HiUsers,
+            active:pathname === '/users' 
+        },
+        {
+            label:'Logout',
+            href:'#',
+            icon:HiArrowLeftOnRectangle,
+            onclick:()=>signOut()
         }
 ],[pathname,conversationId])
 return routes;
