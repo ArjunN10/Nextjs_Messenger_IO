@@ -24,17 +24,16 @@ const MobileFooter = () => {
     items-center
     bg-white
     border-t-[1px]
-    lg:hidden
-    '>
-      {routes.map((route)=>{
-          <MobileItems
+    lg:hidden'>
+     {routes.map((route) => (
+        <MobileItems
           key={route.href}
           href={route.href}
           active={route.active}
           icon={route.icon}
-          onclick={route.onclick}
-          />
-        })}
+          onClick={route.onclick}
+        />
+      ))}
     </div>
   ); 
 }

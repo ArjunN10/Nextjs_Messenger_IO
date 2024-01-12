@@ -1,8 +1,54 @@
+'use client'
+
 import React from 'react'
 
-const MobileItems = () => {
+import Link from 'next/link'
+import clsx from 'clsx'
+
+interface MobileItemsProps{
+  href:string;
+  icon:any;
+  active?:boolean;
+  onClick?:()=>void;
+}
+
+const MobileItems:React.FC<MobileItemsProps> = ({
+  href,
+  icon:Icon,
+  active,
+  onClick
+
+}) => {
+
+  const handleClick=()=>{
+    if(onClick){
+      return onClick
+    }
+}
+
   return (
-    <div>MobileItems</div>
+    <>
+     <Link
+          href={href}
+          onClick={onClick}
+          className={
+            clsx(`
+            group
+            flex
+            gap-x-3
+            text-sm
+            leading-6
+            font-semibold
+            w-full
+            justify-center
+            p-4
+            text-gray-600
+            hover:bg-gray-100`,
+            active && 'bg-gray-100 text-black')
+           }>
+         <Icon className='h-6 w-6'/>
+    </Link>
+    </>
   )
 }
 
