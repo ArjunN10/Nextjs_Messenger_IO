@@ -15,11 +15,13 @@ const Avatar:React.FC<AvatarProps>= ({
       relative
       inline-block
       overflow-hidden
-      w-9
       h-9
+      w-9
       rounded-full
       md:h-10
       md:w-10
+      ring-1
+      ring-black
       ">
       <Image
       alt="Avatar"
@@ -27,6 +29,20 @@ const Avatar:React.FC<AvatarProps>= ({
       fill
       />
       </div>
+      <span className="
+      absolute
+      block
+      rounded-full
+      bg-green-500
+      ring-2
+      ring-white
+      top-0
+      right-0
+      h-2
+      w-2
+      md:h-3
+      md:w-3
+      "/>
     </div>
   )
 }
