@@ -28,7 +28,6 @@ const Avatar:React.FC<AvatarProps>= ({
       src={user?.image || '/images/holder.png'}
       fill
       />
-      </div>
       <span className="
       absolute
       block
@@ -43,6 +42,7 @@ const Avatar:React.FC<AvatarProps>= ({
       md:h-3
       md:w-3
       "/>
+      </div>
     </div>
   )
 }
