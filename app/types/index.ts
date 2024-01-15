@@ -7,5 +7,5 @@ export type FullMessageType=Message & {
 
 export type FullConversationType=Conversation & {
     users:User[],
-    messages:FullMessageType
+    messages:FullMessageType[]
 };
