@@ -19,7 +19,7 @@ const ConversationBox:React.FC<ConversationBoxProps>= ({
     data,
     selected
 }) => {
-
+// console.log(data)
     const otherUser=useOtherUser(data)
     const session=useSession()
     const router=useRouter()
@@ -94,7 +94,7 @@ const ConversationBox:React.FC<ConversationBoxProps>= ({
             text-gray-900
             ">
                 {/* check for group username & user */}
-                {data.name || otherUser.name}    
+                {data?.name || otherUser?.name}    
             </p>
             {lastMessage?.createdAt && (
                 <p className="

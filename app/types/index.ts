@@ -5,6 +5,7 @@ export type FullMessageType=Message & {
     seen:User[]
 };
 
+
 export type FullConversationType=Conversation & {
     users:User[],
     messages:FullMessageType[]
