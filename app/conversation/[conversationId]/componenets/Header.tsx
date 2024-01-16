@@ -7,6 +7,8 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { HiChevronLeft, HiEllipsisHorizontal } from "react-icons/hi2";
 
+// import Image from "next/image"
+
 interface HeaderProps{
     conversation:Conversation & {
         users:User[]
@@ -77,7 +79,7 @@ return 'Active'
         hover:text-sky-600
         transition
         "/>
-        </div>
+</div>
     );
 }
 

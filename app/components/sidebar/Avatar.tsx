@@ -28,7 +28,8 @@ const Avatar:React.FC<AvatarProps>= ({
       src={user?.image || '/images/holder.png'}
       fill
       />
-      <span className="
+
+      {/* <span className="
       absolute
       block
       rounded-full
@@ -41,9 +42,21 @@ const Avatar:React.FC<AvatarProps>= ({
       w-2
       md:h-3
       md:w-3
-      "/>
+      "/> */}
+            <span className="
+            absolute
+             text-green-500 
+             right-0 
+             bottom-0
+            ">
+            <svg width="20" height="20">
+                  <circle cx="8" cy="8" r="8" fill="currentColor"></circle>
+               </svg>
+            </span>
+
       </div>
-    </div>
+  </div>
+       
   )
 }
 
