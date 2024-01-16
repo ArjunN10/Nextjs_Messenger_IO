@@ -1,6 +1,6 @@
 import prisma from '@/app/libs/Prismadb'
 import getCurrentUser from './getCurrentUser'
-import ConversationId from '../conversation/[conversationId]/page'
+
 
 const getConversationById=async(
     ConversationId:string
@@ -20,6 +20,7 @@ const getConversationById=async(
             }
         });
         return conversation;
+        
     } catch (error:any) {
         return null
     }
