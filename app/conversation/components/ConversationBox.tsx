@@ -62,6 +62,8 @@ const ConversationBox:React.FC<ConversationBoxProps>= ({
         return "Started a conversation"
     },[lastMessage])
 
+
+    
     return (
         <div 
         onClick={handleClick}
