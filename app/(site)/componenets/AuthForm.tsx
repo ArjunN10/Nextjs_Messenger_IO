@@ -54,7 +54,7 @@ useEffect(()=>{
 
     if (variant === "Register") {
         axios.post('/api/register', data)
-        // .then(()=>signIn('credentials',data))       //Login immediatly
+        // .then(()=>signIn('credentials',data))       //Login immediatly as register
         .catch(()=>toast.error('Something went wrong!'))
         .finally(()=>setisLoading(false))
         }
