@@ -3,7 +3,9 @@
 import Avatar from "@/app/components/sidebar/Avatar";
 import { FullMessageType } from "@/app/types";
 import clsx from "clsx";
+import { format } from "date-fns";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 
 interface  MessageBoxProps{
@@ -44,19 +46,42 @@ const message=clsx(
 
 
     return (
-        <div className={container}>
-<div className={avatar}>
-<Avatar user={data.sender}/>
+<div className={container}>
+    <div className={avatar}>
+        <Avatar user={data.sender}/>
     </div> 
     <div className={body}>
-<div className="flex item-center gap-1">
-<div className="text-sm text-gray-500">
-        {data.sender.name}
-</div>
-</div>
+        <div className="flex item-center gap-1">
+            <div className="text-sm text-gray-500">
+                {data.sender.name}
+            </div>
+            <div className="text-xs text-gray-400">
+                {format(new Date(data.createdAt),'p')}
+            </div>
+        </div>
+        <div className={message}>
+        {data.image?(
+            <Image
+            alt="Image"
+            height="288"
+            width="288"
+            src={data.image}
+            className="
+            object-cover
+            cursor-pointer
+            hover:scale-110
+            transition
+            translate
+            "/>
+        ):(
+            <div>
+                {data.body}
+            </div>
+        )}
+        </div>
     </div>   
-    </div>
-    );
+</div>
+ );
 }
 
 export default MessageBox;
