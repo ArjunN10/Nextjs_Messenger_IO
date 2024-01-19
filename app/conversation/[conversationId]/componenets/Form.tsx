@@ -25,7 +25,7 @@ const Form = () => {
         }
     }=useForm<FieldValues>({
         defaultValues:{
-            message:''
+        message:'' 
         }
     })
 
@@ -33,7 +33,7 @@ const Form = () => {
         setValue('message','',{shouldValidate:true});   //clear the message input onSubmit
         axios.post('/api/messages',{
             ...data,
-            conversationId:conversationId
+            conversationId
         })
     }
 
