@@ -15,15 +15,20 @@ const Body:React.FC<BodyProps> = ({
 }) => {
 
   const [messages, setMessages] = useState(initialMessages || []);
+  // console.log("messs",messages)
   const bottomRef=useRef<HTMLDivElement>(null)
 
   const {conversationId}=useConversation()
 
 
   //post rout for seen the body 
+  
   useEffect(()=>{
   axios.post(`/api/conversation/${conversationId}/seen`)
   },[conversationId])
+
+
+// 
     return (
     <div className="flex-1 overflow-y-auto">
     {messages.map((message,i)=>(
@@ -34,7 +39,7 @@ const Body:React.FC<BodyProps> = ({
         />
      ))} 
     <div ref={bottomRef} className="pt-24"/>
-
+{/* Body */}
 
    </div>
     );

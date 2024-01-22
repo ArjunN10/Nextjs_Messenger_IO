@@ -48,7 +48,7 @@ const {conversationId,isOpen}=useConversation()
                 cursor-pointer
                 hover:opacity-75
                 transition">
-                    <MdOutlineGroupAdd size={20}/>
+                <MdOutlineGroupAdd size={20}/>
                 </div>
             </div>
             {items.map((item)=>(

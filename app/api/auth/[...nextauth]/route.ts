@@ -8,6 +8,7 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import prisma from '@/app/libs/Prismadb'
 import Credentials from "next-auth/providers/credentials"
 
+// Configuration options for NextAuth
 export const authOptions: AuthOptions = {
 
     adapter: PrismaAdapter(prisma),  
@@ -54,7 +55,10 @@ export const authOptions: AuthOptions = {
         }
       })
     ],
+
     debug: process.env.NODE_ENV === 'development',
+
+    // Session configuration
     session: {
       strategy: "jwt",
     },

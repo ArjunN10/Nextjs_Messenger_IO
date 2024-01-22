@@ -1,13 +1,14 @@
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import { NextResponse } from "next/server";
 import prisma from '@/app/libs/Prismadb'
+import { id } from "date-fns/locale";
 
 
 export async function POST(
     request:Request
 ){
     try {
-        const currentUser=await getCurrentUser();
+        const currentUser=await getCurrentUser()
         const body=await request.json();
         const {
             userId,
@@ -32,7 +33,7 @@ export async function POST(
                             ...members.map((member:{value:string})=>({
                                 id:member.value
                             })),{
-                                i:currentUser.id
+                                id:currentUser.id
                             }
                         ]
                     }
@@ -69,6 +70,9 @@ export async function POST(
             return NextResponse.json(singleConversation);
         }
 
+
+
+        
         //start new conv if not exist
 const newConversation=await prisma.conversation.create({
     data:{

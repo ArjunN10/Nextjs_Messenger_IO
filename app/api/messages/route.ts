@@ -1,5 +1,6 @@
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import { NextResponse } from "next/server";
+import prisma from "@/app/libs/Prismadb"
 
 export async function POST(
     request:Request
@@ -14,10 +15,12 @@ export async function POST(
         }=body;
 
         if(!currentUser?.id || !currentUser?.email){
-            return new NextResponse("Unautherized",{status:401})
+            return new NextResponse("Unauthorized",{status:401})
 
         }
 
+
+        //create new message in db
         const newMessage=await prisma?.message.create({
             data:{
                 body:message,

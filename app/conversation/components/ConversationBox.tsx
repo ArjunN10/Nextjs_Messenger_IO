@@ -6,9 +6,11 @@ import { Conversation,Message,User } from "@prisma/client";
 import {format} from 'date-fns'
 import { useSession } from "next-auth/react";
 import clsx from "clsx";
-import { FullConversationType } from "@/app/types";
-import useOtherUser from "@/app/hooks/useOtherUser";
+
+
 import Avatar from "@/app/components/sidebar/Avatar";
+import useOtherUser from "@/app/hooks/useOtherUser";
+import { FullConversationType } from "@/app/types";
 
 interface ConversationBoxProps{
     data:FullConversationType,
@@ -37,7 +39,7 @@ const ConversationBox:React.FC<ConversationBoxProps>= ({
 
     const userEmail=useMemo(()=>{
         return session.data?.user?.email;
-    },[session?.data?.user?.email])
+    },[session.data?.user?.email])
 
     const hasSenn=useMemo(()=>{             //holds all users seen
         if(!lastMessage){
@@ -115,9 +117,8 @@ const ConversationBox:React.FC<ConversationBoxProps>= ({
                 )}>
                     {lastMessageText}
                 </p>
+         </div>
     </div>
-
-</div>
     </div>
     );
 }

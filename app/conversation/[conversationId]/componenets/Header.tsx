@@ -14,6 +14,8 @@ interface HeaderProps{
         users:User[]
     }
 }
+
+
 const Header:React.FC<HeaderProps> = ({
     conversation,
 }) => {

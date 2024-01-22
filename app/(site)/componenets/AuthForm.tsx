@@ -2,14 +2,14 @@
 
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";  //form handling is done(form submission logic includes registration, user credential login, and social login)
 import {BsGithub, BsGoogle} from 'react-icons/bs' 
 
 import Button from "@/app/components/Button";
 import Input from "@/app/components/Input";
 import AuthSocialButton from "./AuthSocialButton";
 import toast from "react-hot-toast";
-import { signIn, useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react"; 
 import { useRouter } from "next/navigation";
 
 
@@ -19,14 +19,14 @@ const AuthForm = () => {
   const session=useSession()
   const router=useRouter()
   const [variant, setvariant] = useState<variant>("Login");
-  const [isLoading, setisLoading] = useState(false);
+  const [isLoading, setisLoading] = useState(false); //like a flag indicater
 
 
 useEffect(()=>{
   if(session?.status === 'authenticated'){
     router.push("/users")
   }
-},[session?.status,router])
+},[session?.status,router])   
 
 
   const togglevariant = useCallback(() => {
@@ -49,6 +49,7 @@ useEffect(()=>{
     },
   });
 
+  
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setisLoading(true);
 
