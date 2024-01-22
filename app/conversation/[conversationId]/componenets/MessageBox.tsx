@@ -1,16 +1,16 @@
 "use client"
 
-import Avatar from "@/app/components/sidebar/Avatar";
-import { FullMessageType } from "@/app/types";
 import clsx from "clsx";
-import { format } from "date-fns";
-import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { format } from "date-fns";
+import { FullMessageType } from "@/app/types";
+import { useSession } from "next-auth/react";
+import Avatar from "@/app/components/sidebar/Avatar";
 
 
 interface  MessageBoxProps{
-    data:FullMessageType
-    isLast:boolean
+    data:FullMessageType;
+    isLast?:boolean;
 }
 const MessageBox:React.FC<MessageBoxProps> = ({
     data,
@@ -23,6 +23,8 @@ const seenList=(data.seen || [])
 .filter((user)=>user.email !== data?.sender?.email)  //removing sender user from the list of seen
 .map((user)=>user.name)
 .join(', ')    //uer1,user2,user3
+
+
 
 //Dynamic classes
 const container=clsx(
