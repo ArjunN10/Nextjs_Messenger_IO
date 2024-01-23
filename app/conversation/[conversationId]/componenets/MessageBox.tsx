@@ -60,7 +60,6 @@ const message=clsx(
             <div className="text-xs text-gray-400">
                 {format(new Date(data.createdAt),'p')}
             </div>
-        </div>
         <div className={message}>
         {data.image?(
             <Image
@@ -88,10 +87,11 @@ const message=clsx(
             text-gray-500
             ">
                 {`Seen by ${seenList}`}
-            </div>
-        )}
-    </div>   
-</div>
+                 </div>
+                )}
+            </div>   
+        </div>
+    </div>
  );
 }
 

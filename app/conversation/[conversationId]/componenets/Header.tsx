@@ -4,8 +4,9 @@ import Avatar from "@/app/components/sidebar/Avatar";
 import useOtherUser from "@/app/hooks/useOtherUser";
 import { Conversation, User } from "@prisma/client";
 import Link from "next/link";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { HiChevronLeft, HiEllipsisHorizontal } from "react-icons/hi2";
+import ProfileDrawer from "./ProfileDrawer";
 
 // import Image from "next/image"
 
@@ -21,6 +22,7 @@ const Header:React.FC<HeaderProps> = ({
 }) => {
 
     const otherUser=useOtherUser(conversation)
+    const [drawerOpen,setDrawerOpen]=useState(false)
 
     const statusText=useMemo(()=>{
 if(conversation.isGroup){                   
@@ -33,6 +35,12 @@ return 'Active'
 
 
     return (
+    <>
+    <ProfileDrawer
+    data={conversation}
+    isOpen={drawerOpen}
+    onClose={()=>setDrawerOpen(false)}
+    />
         <div className="
         bg-white
         w-full
@@ -74,14 +82,16 @@ return 'Active'
         </div> 
         <HiEllipsisHorizontal
         size={32}
-        onClick={()=>{}}
+        onClick={()=>setDrawerOpen(true)}
         className="
         text-sky-500
         cursor-pointer
         hover:text-sky-600
         transition
         "/>
-</div>
+    </div>
+</>
+
     );
 }
 
