@@ -37,7 +37,7 @@ export async function DELETE(
             where:{
                 id:conversationId,
                 userIds:{
-                    hasSome:[currentUser.id]
+                    hasSome:[currentUser.id]     //part of user in Grp can dlt
                 }
             }
         })
