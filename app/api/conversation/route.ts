@@ -1,7 +1,6 @@
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import { NextResponse } from "next/server";
 import prisma from '@/app/libs/Prismadb'
-import { id } from "date-fns/locale";
 
 
 export async function POST(
