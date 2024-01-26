@@ -23,11 +23,11 @@ const [isLoading,setisLoading]=useState(false)
         const handleClick=useCallback(()=>{
         setisLoading(true)
 
-        axios.post('/api/conversations',{ 
+        axios.post('/api/conversation',{ 
             userId:data.id
         })
         .then((data)=>{
-        router.push(`/conversatio   ns/${data.data.id}`)
+        router.push(`/conversation/${data.data.id}`)
         })
         .finally(()=>setisLoading(false));
         },[data,router])

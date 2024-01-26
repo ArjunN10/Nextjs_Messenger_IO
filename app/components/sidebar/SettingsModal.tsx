@@ -80,7 +80,7 @@ const SettingsModal:React.FC<SettingsModalProps> = ({
             >
               Profile
             </h2>
-            <div className="h-40 w-40  rounded-full bg-black m-4">
+            <div className="h-40 w-40  rounded-full bg-white m-4">
             <div className="mt-0 mb-1 flex items-center gap-x-3 h-40 w-40 justify-center">
                   <Image
                     width="200"
@@ -90,24 +90,26 @@ const SettingsModal:React.FC<SettingsModalProps> = ({
                     alt="Avatar"
                   />
                 </div>
+                <div className="ms-4">
                   <CldUploadButton 
                     options={{ maxFiles: 1 }} 
                     onUpload={handleUpload} 
                     uploadPreset="shdekvul"
-                    className="ms-2"
+                    className="ms-8 "
                   >
                     <Button
                       disabled={isLoading}
                       secondary
                       type="button"
                     >
-                    {/* <FaCamera size={30}/> */}
-                    Change
+                  <FaCamera size={28}/>
                     </Button>
                   </CldUploadButton>
+                </div>
+
             </div>
             <p className="mt-8 text-sm leading-6 text-gray-600 ">
-              Edit your public information.
+              Edit your profile information.
             </p>
 
             <div className="mt-10 flex flex-col gap-y-8">
@@ -120,10 +122,8 @@ const SettingsModal:React.FC<SettingsModalProps> = ({
                 register={register}
               />
               <div>
-              <dl className="space-y-8
-                  px-4
-                   sm:space-y-6
-                    sm:px-6
+              <dl className="
+                 mt-10 flex flex-col gap-y-4
                    ">
                 {/* <label 
                   htmlFor="photo" 
@@ -133,7 +133,7 @@ const SettingsModal:React.FC<SettingsModalProps> = ({
                     font-medium 
                     leading-6 
                     text-gray-900
-                  "
+                  " 
                 >
                   About
                 </label> */}
