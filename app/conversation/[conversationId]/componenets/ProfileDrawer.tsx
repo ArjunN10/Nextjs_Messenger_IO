@@ -9,6 +9,7 @@ import { IoClose, IoTrash } from 'react-icons/io5'
 import Avatar from "@/app/components/Avatar";
 import Modal from "@/app/components/Modal";
 import ConfirmModal from "./ConfirmModal";
+import AvatarGroup from "@/app/components/AvatarGroup";
 
 interface ProfileDrawerProps{
     isOpen:boolean;
@@ -138,9 +139,14 @@ const statusText=useMemo(()=>{
                                             </div>
                                             <div className="relative mt-6 flex-1 px-4 sm:px-6">
                                                 <div className="flex flex-col items-center">
-                                                    <div className="mb-2 ">
+                                                    {data.isGroup ?(
+                                                        <AvatarGroup users={data.users}/>
+                                                    ):(
+                                                        <div className="mb-2 ">
                                                         <Avatar user={otherUser}/>
                                                     </div>
+                                                    )}
+                                                   
                                                     <div>
                                                         {title}
                                                     </div>
@@ -189,6 +195,27 @@ const statusText=useMemo(()=>{
                                                         sm:space-y-6
                                                         sm:px-6
                                                         ">
+                                                            {data.isGroup && (
+                                                                <div>
+                                                                    <dt className="
+                                                                    text-sm
+                                                                    font-medium
+                                                                    text-gray-500
+                                                                    sm:w-40
+                                                                    sm:flex-shrink-0
+                                                                    ">
+                                                                        Emails
+                                                                    </dt>
+                                                                    <dd className="
+                                                                    mt-1
+                                                                    text-sm
+                                                                    text-gray-900
+                                                                    sm:col-span-2
+                                                                    ">
+                                                                        {data.users.map((user)=>user.email).join(', ')}
+                                                                    </dd>
+                                                                </div>
+                                                            )}
                                                             {!data.isGroup && (
                                                                 <div>
                                                                     <dt className="
