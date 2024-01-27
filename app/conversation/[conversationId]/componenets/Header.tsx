@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { HiChevronLeft, HiEllipsisHorizontal } from "react-icons/hi2";
 import ProfileDrawer from "./ProfileDrawer";
+import AvatarGroup from "@/app/components/AvatarGroup";
 
 // import Image from "next/image"
 
@@ -64,9 +65,14 @@ return 'Active'
             href="/conversation">
             <HiChevronLeft size={32}/>
             </Link>
+            {conversation.isGroup?(
+                    <AvatarGroup users={conversation.users}/>
+            ):(
             <div className="mt-2">
             <Avatar user={otherUser}/>
             </div>
+            )}
+            
             <div className="flex flex-col">
             <div>
                 {conversation?.name || otherUser?.name}
