@@ -1,6 +1,7 @@
 "use client"
 
 import Avatar from "@/app/components/Avatar"
+import LoadingModal from "@/app/components/LoadingModal"
 import { User } from "@prisma/client"
 import axios from "axios"
 import { useRouter } from "next/navigation"
@@ -33,6 +34,10 @@ const [isLoading,setisLoading]=useState(false)
         },[data,router])
 
 return(
+    <>
+    {isLoading && (
+    <LoadingModal/>
+    )}
 <div
 onClick={handleClick}
 className="
@@ -71,6 +76,7 @@ cursor-pointer"
 </div>
 </div>
 </div>
+</>
     )
 }
 
