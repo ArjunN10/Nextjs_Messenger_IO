@@ -53,7 +53,7 @@ const GroupChatModal:React.FC<GroupChatModalProps> = ({
             router.refresh()
             onClose();
         })
-        .catch(()=>toast.error("Something went wrong"))
+        .catch(()=>toast.error("Something went wrong requir morethan 2 members"))
         .finally(()=>setIsLoading(false))
      }
     return (
